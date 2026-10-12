@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.interpolate import CubicSpline  # для проверки (можно не использовать)
 
 
 # Функции варианта 2

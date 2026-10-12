@@ -14,11 +14,16 @@ def solve_u(lam, T, tau):
         u[i + 1] = (u[i] + tau * (1 - lam * x[i + 1])) / (1 - tau * lam)
     return x, u
 
+reached_tolerance = False
 for tau in [1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6]:
     x, u_num = solve_u(lam, T, tau)
     u_exact = np.exp(lam * x) + x
     err = np.max(np.abs(u_num - u_exact))
-    print(f"τ = {tau:.1e}, max error = {err:.2e}")
+    print(f"tau = {tau:.1e}, max error = {err:.2e}")
     if err <= tol:
-        print(f"→ Требуемая точность достигнута при τ = {tau:.1e}")
+        print(f"Required tolerance reached at tau = {tau:.1e}")
+        reached_tolerance = True
         break
+
+if not reached_tolerance:
+    print(f"Tolerance {tol:.1e} was not reached for the listed step sizes.")
