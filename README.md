@@ -1,3 +1,5 @@
+[Русская версия](README.ru.md)
+
 # Numerical Methods: Interpolation and ODEs
 
 A small Python coursework repository for experimenting with numerical interpolation, cubic splines, and step-size error in a stiff first-order differential equation.
